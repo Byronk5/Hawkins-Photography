@@ -87,15 +87,6 @@ class UI {
       total += item.amount * item.price;
     });
     productsTotal.innerText = total;
-    // let total = 0;
-    // let inputs = [...document.querySelectorAll(".item-quantity")];
-    // let inputValue = inputs.map((item) => item.value);
-    // console.log(inputValue);
-    // cart.map((item) => {
-    //   let x = item.amount * inputValue;
-    //   total += x * item.price;
-    // });
-    // productsTotal.innerText = total;
   }
 
   updateCart(cartItem) {
@@ -153,7 +144,9 @@ class="
 </div>
 </div>
 `;
-    cartDOM.appendChild(div);
+    cartContent.appendChild(div);
+
+    // cartDOM.appendChild(cartContent);
     const cartTotalDiv = document.querySelector(".item-total");
     cartDOM.insertBefore(div, cartTotalDiv);
   }
@@ -189,7 +182,7 @@ class="
     clearCartButton.addEventListener("click", () => {
       this.removeItemFromCart();
     });
-
+    console.log(cartContent, cartDOM);
     cartDOM.addEventListener("click", (e) => {
       if (e.target.classList.contains("delete-button")) {
         let deleteButton = e.target;
@@ -213,16 +206,20 @@ class="
     cartItems.forEach((cartItemId) => {
       this.deleteItem(cartItemId);
     });
-    let cartDiv =
-      cartDOM.firstElementChild.nextElementSibling.nextElementSibling
-        .nextElementSibling;
-    console.log(cartDiv);
-    if (cartDiv.children.length > 0) {
-      let child = cartDiv.children[0];
-      cartDiv.removeChild(child);
+
+    if (cartDOM.children.length > 0) {
+      cartDOM.removeChild(cartDOM.children[2]);
     }
-    // if (cartDOM.children.length >= 0) {
+
+    // while (cartContent.children.length > 0) {
+    //   alert("d");
+    //   console.log(cartContent.children[0]);
+    //   cartContent.removeChild(cartContent.children[0]);
+    // }
+
+    // if (cartDOM.children.length > 0) {
     //   let child = cartDOM.children[1];
+    //   console.log(child);
     //   cartDOM.removeChild(child);
     // }
   }
