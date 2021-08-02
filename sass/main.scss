@@ -74,7 +74,52 @@ nav {
     no-repeat center center/cover;
 }
 
-// People
+// Booking Form
+
+@media screen and (max-width: 900px) {
+  .form-content {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .form-content-form {
+      width: 100%;
+    }
+
+    .form-content-image {
+      width: 100%;
+    }
+  }
+  .weather-content {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .weather-content-overlay {
+      width: 100%;
+    }
+
+    .weather-content-info {
+      width: 100%;
+    }
+
+    .weather-info {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding-top: 2rem;
+    }
+  }
+}
+
+.weather-overlay {
+  background: url("../img/booking/weather-image-cape.jpg") center/cover
+    no-repeat;
+  width: 100%;
+  height: 300px;
+  color: $light-color;
+}
 
 // Footer
 footer {
