@@ -54,15 +54,23 @@ nav {
   transform: translateX(0);
 }
 
-.item-price {
-  display: none;
+.card {
+  position: relative;
+}
+.card .item-price {
+  position: absolute;
+  top: 50%;
+  color: #f2b31b;
+  background-color: #272727;
+  padding: 5px;
+  transform: translateX(-101%);
   opacity: 0;
+  transition: all 0.3s linear;
 }
 
-.show-price-animation {
-  display: block;
+.card:hover .item-price {
+  transform: translateX(0);
   opacity: 1;
-  background-color: aqua;
 }
 
 .homepage-background {
@@ -228,9 +236,6 @@ nav {
   color: #fff;
 }
 
-footer {
-  background-color: #fff;
-}
 footer span {
   color: #f2b31b;
   font-weight: bold;

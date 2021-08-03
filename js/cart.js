@@ -29,17 +29,16 @@ class UI {
     productsData.forEach((item) => {
       result += `
       <div class="col-sm">
-        <div class="card">
+        <div class="card mt-5">
           <img
             src="${item.image}"
             alt="img"
             class="card-img-top item-image"
           />
+          <h3 class="item-price">R${item.price}</h3>
           <div class="card-body text-center">
           <button type="button" class="btn btn-light cart-button" data-id=${item.id}> <i class="fas fa-cart-plus fa-2x"></i
-          ></button>
-            <h6 class="imagitem-title-title">${item.title}</h6>
-            <p class="item-price">500</p>
+          ></button>            
           </div>
         </div>      
        `;
