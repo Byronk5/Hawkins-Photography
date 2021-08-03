@@ -13,6 +13,7 @@ body {
   overflow: auto;
   background-color: $light-color;
   overflow-x: hidden;
+  box-sizing: border-box;
 }
 
 // Navbar
@@ -72,6 +73,120 @@ nav {
 
   background: url("/img/homepage/lukasz-szmigiel-jFCViYFYcus-unsplash.jpg")
     no-repeat center center/cover;
+}
+
+// Gallery
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(35, 5vw);
+  grid-gap: 15px;
+}
+
+.gallery-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.gallery-item-1 {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 5;
+}
+
+.gallery-item-2 {
+  grid-column-start: 3;
+  grid-column-end: 5;
+  grid-row-start: 1;
+  grid-row-end: 5;
+}
+
+.gallery-item-3 {
+  grid-column-start: 5;
+  grid-column-end: 9;
+  grid-row-start: 1;
+  grid-row-end: 6;
+}
+
+.gallery-item-4 {
+  grid-column-start: 1;
+  grid-column-end: 5;
+  grid-row-start: 5;
+  grid-row-end: 12;
+}
+
+.gallery-item-5 {
+  grid-column-start: 5;
+  grid-column-end: 7;
+  grid-row-start: 6;
+  grid-row-end: 12;
+}
+
+.gallery-item-6 {
+  grid-column-start: 7;
+  grid-column-end: 9;
+  grid-row-start: 6;
+  grid-row-end: 12;
+}
+
+.gallery-item-7 {
+  grid-column-start: 1;
+  grid-column-end: 5;
+  grid-row-start: 12;
+  grid-row-end: 18;
+}
+.gallery-item-8 {
+  grid-column-start: 5;
+  grid-column-end: 9;
+  grid-row-start: 12;
+  grid-row-end: 18;
+}
+.gallery-item-9 {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row-start: 18;
+  grid-row-end: 23;
+}
+.gallery-item-10 {
+  grid-column-start: 4;
+  grid-column-end: 7;
+  grid-row-start: 18;
+  grid-row-end: 23;
+}
+
+.gallery-item-11 {
+  grid-column-start: 7;
+  grid-column-end: 9;
+  grid-row-start: 18;
+  grid-row-end: 23;
+}
+.gallery-item-12 {
+  grid-column-start: 1;
+  grid-column-end: 6;
+  grid-row-start: 23;
+  grid-row-end: 35;
+}
+.gallery-item-13 {
+  grid-column-start: 6;
+  grid-column-end: 9;
+  grid-row-start: 28;
+  grid-row-end: 35;
+}
+.gallery-item-14 {
+  grid-column-start: 6;
+  grid-column-end: 9;
+  grid-row-start: 23;
+  grid-row-end: 28;
+}
+
+.gallery-item {
+  transition: transform 0.2s ease-in-out;
+}
+
+.gallery-item:hover {
+  transform: scale(1.5);
 }
 
 // Booking Form
