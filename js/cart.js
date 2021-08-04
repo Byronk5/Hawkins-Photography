@@ -35,6 +35,7 @@ class UI {
             alt="img"
             class="card-img-top item-image"
           />
+          <h3 class="cart-message" data-id=${item.id}>Added to Cart!</h3>
           <h3 class="item-price">R${item.price}</h3>
           <div class="card-body text-center">
           <button type="button" class="btn btn-light cart-button" data-id=${item.id}> <i class="fas fa-cart-plus fa-2x"></i
@@ -61,7 +62,14 @@ class UI {
       }
 
       button.addEventListener("click", () => {
-        alert("Item added to cart");
+        // alert("Item added to cart");
+
+        // console.log(cartMessage);
+        // id = cartMessage.map((item) => id);
+        // console.log(id);
+        // cartMessage.classList.add("cart-message-active");
+        // cartMessage.forEach((msg) => msg.classList.add("cart-message-active"));
+
         button.innerHTML = `<i class="fas fa-cart-arrow-down fa-2x"></i>`;
         button.disabled = true;
 
@@ -74,12 +82,18 @@ class UI {
         this.calculateCartTotal(cart);
         this.updateCart(cartItem);
         this.displayCartOnProductAdd();
+        this.addCartMessage();
       });
     });
 
     this.toggleCartOnBtnClick();
     this.hideCart();
   }
+  addCartMessage() {
+    const cartMessage = document.querySelector(".cart-message");
+    cartMessage.classList.add("cart-message-active");
+  }
+
   calculateCartTotal(cart) {
     let total = 0;
     cart.map((item) => {

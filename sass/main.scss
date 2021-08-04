@@ -19,9 +19,60 @@ body {
 // Navbar
 nav {
   background-color: $light-color;
+  .cart-button-nav {
+    font-size: small;
+  }
 }
 .logo {
-  width: 100px;
+  width: 120px;
+}
+
+// Home
+.homepage-background {
+  height: 80vh;
+  background: url("/img/homepage/lukasz-szmigiel-jFCViYFYcus-unsplash.jpg")
+    no-repeat center/cover;
+
+  .fadeIn-left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    background: $dark-color;
+    animation: openCurtain 3.5s forwards;
+    animation-delay: 1s;
+
+    img {
+      animation: logoFade 2s forwards;
+      animation-delay: 1s;
+    }
+
+    @keyframes logoFade {
+      0% {
+        opacity: 1;
+      }
+
+      100% {
+        opacity: 0;
+        display: none;
+      }
+    }
+  }
+
+  @keyframes openCurtain {
+    0% {
+      width: 100%;
+    }
+
+    100% {
+      width: 0%;
+      display: none;
+    }
+  }
 }
 
 // Cart | Shop
@@ -69,20 +120,28 @@ nav {
     opacity: 0;
     transition: all 0.3s linear;
   }
+
+  .cart-message {
+    position: absolute;
+    top: 80%;
+    transition: all 0.2s linear;
+    opacity: 0;
+    transform: translateX(-101%);
+    color: $main-color;
+    background-color: $dark-color;
+    padding: 5px;
+  }
+
+  .cart-message-active {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 .card:hover {
   .item-price {
     transform: translateX(0);
     opacity: 1;
   }
-}
-
-// Home
-.homepage-background {
-  height: 80vh;
-
-  background: url("/img/homepage/lukasz-szmigiel-jFCViYFYcus-unsplash.jpg")
-    no-repeat center center/cover;
 }
 
 // Gallery
@@ -202,6 +261,10 @@ nav {
 // Booking Form
 
 @media screen and (max-width: 900px) {
+  .cart-button-nav {
+    width: 10%;
+  }
+
   .form-content {
     flex-direction: column;
     justify-content: center;
