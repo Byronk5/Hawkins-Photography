@@ -3,7 +3,12 @@ let productsTotal = document.querySelector(".item-total-price");
 const cartDOM = document.querySelector(".cart");
 const cartButtonNav = document.querySelector(".cart-button-nav");
 const clearCartButton = document.querySelector(".clear-button");
+const purchaseButton = document.querySelector(".purchase-button");
 const cartContent = document.querySelector(".cart-content");
+const addToCartNotification = document.querySelector(".cart-notification-add");
+const removeFromCartNotification = document.querySelector(
+  ".cart-notification-remove"
+);
 
 let cart = [];
 let inputs = [];
@@ -64,7 +69,7 @@ class UI {
       button.addEventListener("click", () => {
         button.innerHTML = `<i class="fas fa-cart-arrow-down fa-2x"></i>`;
         button.disabled = true;
-
+        purchaseButton.disabled = false;
         let cartItem = { ...Storage.getProductFromStorage(id), amount: 1 };
 
         cart = [...cart, cartItem];
@@ -74,15 +79,28 @@ class UI {
         this.calculateCartTotal(cart);
         this.updateCart(cartItem);
         this.displayCartOnProductAdd();
-        this.addCartMessage();
+        this.addToCartMessage();
+        setTimeout(this.removeAddToCartMessage, 2000);
       });
     });
 
     this.toggleCartOnBtnClick();
     this.hideCart();
   }
-  addCartMessage() {
-    alert("Added to Cart!");
+  addToCartMessage() {
+    addToCartNotification.classList.add("cart-notification-active");
+  }
+
+  removeAddToCartMessage() {
+    addToCartNotification.classList.remove("cart-notification-active");
+  }
+
+  removeFromCartMessage() {
+    removeFromCartNotification.classList.add("cart-notification-active");
+  }
+
+  deleteRemoveFromCartMessage() {
+    removeFromCartNotification.classList.remove("cart-notification-active");
   }
 
   calculateCartTotal(cart) {
@@ -171,12 +189,22 @@ class="
     cart = Storage.getCartFromStorage();
     this.calculateCartTotal(cart);
     this.displayCartFromStorage(cart);
+    this.cartIsPopulated(cart);
   }
+
+  cartIsPopulated(cart) {
+    let isPopulated = cart.find((item) => item.id);
+    if (isPopulated) {
+      purchaseButton.disabled = false;
+    } else {
+      purchaseButton.disabled = true;
+    }
+  }
+
   displayCartFromStorage(cart) {
     cart.forEach((item) => {
       this.updateCart(item);
     });
-    console.log(cartContent);
   }
 
   cartLogic() {
@@ -184,12 +212,19 @@ class="
       this.removeItemFromCart();
     });
 
+    purchaseButton.addEventListener("click", (e) => {
+      alert("Thank you for your purchase!");
+      this.removeItemFromCart();
+    });
+
     cartContent.addEventListener("click", (e) => {
       if (e.target.classList.contains("delete-button")) {
         let deleteButton = e.target;
-        console.log(deleteButton);
         let id = deleteButton.dataset.id;
         this.deleteItem(id);
+        this.cartIsPopulated(cart);
+        this.removeFromCartMessage();
+        setTimeout(this.deleteRemoveFromCartMessage, 2000);
         deleteButton.parentElement.parentElement.remove();
       } else if (e.target.classList.contains("item-quantity")) {
         let input = e.target;
@@ -212,6 +247,8 @@ class="
     while (cartContent.children.length > 0) {
       cartContent.removeChild(cartContent.children[0]);
     }
+
+    purchaseButton.disabled = true;
   }
 
   deleteItem(cartItemId) {

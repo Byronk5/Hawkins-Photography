@@ -77,13 +77,13 @@ nav {
 
 // Cart | Shop
 .cart {
-  position: absolute;
-  top: 20;
+  position: fixed;
+  top: 0;
   right: 0;
-  height: 100vh;
+  height: 100%;
   z-index: 1;
-  width: 35%;
-  transform: translateX(100%);
+  width: 30%;
+  transform: translateX(110%);
   transition: all 0.3s linear;
 
   .close-cart {
@@ -99,6 +99,11 @@ nav {
   .remove-cart-item {
     width: 40px;
     height: 40px;
+  }
+
+  .purchase-button {
+    background-color: $main-color;
+    color: $light-color;
   }
 }
 
@@ -120,28 +125,43 @@ nav {
     opacity: 0;
     transition: all 0.3s linear;
   }
-
-  .cart-message {
-    position: absolute;
-    top: 80%;
-    transition: all 0.2s linear;
-    opacity: 0;
-    transform: translateX(-101%);
-    color: $main-color;
-    background-color: $dark-color;
-    padding: 5px;
-  }
-
-  .cart-message-active {
-    opacity: 1;
-    transform: translateX(0);
-  }
 }
 .card:hover {
   .item-price {
     transform: translateX(0);
     opacity: 1;
   }
+}
+
+.cart-notification-add {
+  position: fixed;
+  top: 60;
+  left: 0;
+  transition: all 0.2s linear;
+  visibility: hidden;
+  transform: translateX(-101%);
+  color: $main-color;
+  background-color: $dark-color;
+  padding: 5px;
+  z-index: 3;
+}
+
+.cart-notification-remove {
+  position: fixed;
+  top: 60;
+  left: 0;
+  transition: all 0.2s linear;
+  visibility: hidden;
+  transform: translateX(-101%);
+  color: $main-color;
+  background-color: $dark-color;
+  padding: 5px;
+  z-index: 3;
+}
+
+.cart-notification-active {
+  visibility: visible;
+  transform: translateX(0);
 }
 
 // Gallery
