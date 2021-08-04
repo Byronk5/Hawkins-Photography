@@ -35,7 +35,7 @@ class UI {
             alt="img"
             class="card-img-top item-image"
           />
-          <h3 class="cart-message" data-id=${item.id}>Added to Cart!</h3>
+         
           <h3 class="item-price">R${item.price}</h3>
           <div class="card-body text-center">
           <button type="button" class="btn btn-light cart-button" data-id=${item.id}> <i class="fas fa-cart-plus fa-2x"></i
@@ -62,14 +62,6 @@ class UI {
       }
 
       button.addEventListener("click", () => {
-        // alert("Item added to cart");
-
-        // console.log(cartMessage);
-        // id = cartMessage.map((item) => id);
-        // console.log(id);
-        // cartMessage.classList.add("cart-message-active");
-        // cartMessage.forEach((msg) => msg.classList.add("cart-message-active"));
-
         button.innerHTML = `<i class="fas fa-cart-arrow-down fa-2x"></i>`;
         button.disabled = true;
 
@@ -90,8 +82,7 @@ class UI {
     this.hideCart();
   }
   addCartMessage() {
-    const cartMessage = document.querySelector(".cart-message");
-    cartMessage.classList.add("cart-message-active");
+    alert("Added to Cart!");
   }
 
   calculateCartTotal(cart) {
@@ -143,7 +134,6 @@ class="
   <button
     class="
       delete-button
-      data-id=${cartItem.id}
       btn btn-danger
       remove-cart-item
       d-flex
@@ -151,6 +141,7 @@ class="
       align-items-center
       mx-2
     "
+    data-id=${cartItem.id}
   >
     <i class="fas fa-times"></i>
   </button>
@@ -158,10 +149,6 @@ class="
 </div>
 `;
     cartContent.appendChild(div);
-
-    // cartDOM.appendChild(cartContent);
-    const cartTotalDiv = document.querySelector(".item-total");
-    cartDOM.insertBefore(div, cartTotalDiv);
   }
 
   displayCartOnProductAdd() {
@@ -189,16 +176,18 @@ class="
     cart.forEach((item) => {
       this.updateCart(item);
     });
+    console.log(cartContent);
   }
 
   cartLogic() {
     clearCartButton.addEventListener("click", () => {
       this.removeItemFromCart();
     });
-    console.log(cartContent, cartDOM);
-    cartDOM.addEventListener("click", (e) => {
+
+    cartContent.addEventListener("click", (e) => {
       if (e.target.classList.contains("delete-button")) {
         let deleteButton = e.target;
+        console.log(deleteButton);
         let id = deleteButton.dataset.id;
         this.deleteItem(id);
         deleteButton.parentElement.parentElement.remove();
@@ -220,27 +209,13 @@ class="
       this.deleteItem(cartItemId);
     });
 
-    if (cartDOM.children.length > 0) {
-      cartDOM.removeChild(cartDOM.children[2]);
+    while (cartContent.children.length > 0) {
+      cartContent.removeChild(cartContent.children[0]);
     }
-
-    // while (cartContent.children.length > 0) {
-    //   alert("d");
-    //   console.log(cartContent.children[0]);
-    //   cartContent.removeChild(cartContent.children[0]);
-    // }
-
-    // if (cartDOM.children.length > 0) {
-    //   let child = cartDOM.children[1];
-    //   console.log(child);
-    //   cartDOM.removeChild(child);
-    // }
   }
 
   deleteItem(cartItemId) {
-    cart = cart.filter((item) => {
-      item.id !== cartItemId;
-    });
+    cart = cart.filter((item) => item.id !== cartItemId);
 
     this.calculateCartTotal(cart);
     Storage.saveCartToStorage(cart);
