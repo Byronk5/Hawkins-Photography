@@ -159,6 +159,19 @@ nav {
   z-index: 3;
 }
 
+.cart-notification-purchase {
+  position: fixed;
+  top: 60;
+  left: 0;
+  transition: all 0.2s linear;
+  visibility: hidden;
+  transform: translateX(-101%);
+  color: $main-color;
+  background-color: $dark-color;
+  padding: 5px;
+  z-index: 3;
+}
+
 .cart-notification-active {
   visibility: visible;
   transform: translateX(0);

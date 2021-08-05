@@ -9,6 +9,9 @@ const addToCartNotification = document.querySelector(".cart-notification-add");
 const removeFromCartNotification = document.querySelector(
   ".cart-notification-remove"
 );
+const purchaseNotification = document.querySelector(
+  ".cart-notification-purchase"
+);
 
 let cart = [];
 let inputs = [];
@@ -87,6 +90,9 @@ class UI {
     this.toggleCartOnBtnClick();
     this.hideCart();
   }
+
+  // Cart Notifications
+
   addToCartMessage() {
     addToCartNotification.classList.add("cart-notification-active");
   }
@@ -101,6 +107,14 @@ class UI {
 
   deleteRemoveFromCartMessage() {
     removeFromCartNotification.classList.remove("cart-notification-active");
+  }
+
+  purchaseMessage() {
+    purchaseNotification.classList.add("cart-notification-active");
+  }
+
+  removePurchaseMessage() {
+    purchaseNotification.classList.remove("cart-notification-active");
   }
 
   calculateCartTotal(cart) {
@@ -213,7 +227,9 @@ class="
     });
 
     purchaseButton.addEventListener("click", (e) => {
-      alert("Thank you for your purchase!");
+      this.purchaseMessage();
+      setTimeout(this.removePurchaseMessage, 2000);
+
       this.removeItemFromCart();
     });
 
