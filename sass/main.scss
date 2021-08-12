@@ -346,6 +346,103 @@ nav {
     width: 100%;
   }
 
+  // Gallery
+  .gallery-grid {
+    grid-template-rows: repeat(36, 5vw);
+  }
+
+  .gallery-item-1 {
+    grid-column-start: 1;
+    grid-column-end: 5;
+    grid-row-start: 1;
+    grid-row-end: 6;
+  }
+
+  .gallery-item-2 {
+    grid-column-start: 5;
+    grid-column-end: 9;
+    grid-row-start: 1;
+    grid-row-end: 6;
+  }
+
+  .gallery-item-3 {
+    grid-column-start: 1;
+    grid-column-end: 5;
+    grid-row-start: 6;
+    grid-row-end: 11;
+  }
+
+  .gallery-item-4 {
+    grid-column-start: 5;
+    grid-column-end: 9;
+    grid-row-start: 6;
+    grid-row-end: 11;
+  }
+
+  .gallery-item-5 {
+    grid-column-start: 1;
+    grid-column-end: 5;
+    grid-row-start: 11;
+    grid-row-end: 16;
+  }
+
+  .gallery-item-6 {
+    grid-column-start: 5;
+    grid-column-end: 9;
+    grid-row-start: 11;
+    grid-row-end: 16;
+  }
+
+  .gallery-item-7 {
+    grid-column-start: 1;
+    grid-column-end: 5;
+    grid-row-start: 16;
+    grid-row-end: 21;
+  }
+  .gallery-item-8 {
+    grid-column-start: 5;
+    grid-column-end: 9;
+    grid-row-start: 16;
+    grid-row-end: 21;
+  }
+  .gallery-item-9 {
+    grid-column-start: 1;
+    grid-column-end: 5;
+    grid-row-start: 21;
+    grid-row-end: 26;
+  }
+  .gallery-item-10 {
+    grid-column-start: 5;
+    grid-column-end: 9;
+    grid-row-start: 21;
+    grid-row-end: 26;
+  }
+
+  .gallery-item-11 {
+    grid-column-start: 1;
+    grid-column-end: 5;
+    grid-row-start: 26;
+    grid-row-end: 31;
+  }
+  .gallery-item-12 {
+    grid-column-start: 5;
+    grid-column-end: 9;
+    grid-row-start: 26;
+    grid-row-end: 31;
+  }
+  .gallery-item-13 {
+    grid-column-start: 1;
+    grid-column-end: 5;
+    grid-row-start: 31;
+    grid-row-end: 36;
+  }
+  .gallery-item-14 {
+    grid-column-start: 5;
+    grid-column-end: 9;
+    grid-row-start: 31;
+    grid-row-end: 36;
+  }
+
   // Booking Form
 
   .form-content {
