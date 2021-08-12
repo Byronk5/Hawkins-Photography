@@ -1,38 +1,88 @@
 {"items":[
     {"image":"../img/people/1.jpg",
-        "title": "Image 1",
+        "title": "People 1",
         "price": 250,
         "id": "1"
     },
     {"image":"../img/people/2.jpg",
-        "title": "Image 2",
+        "title": "People 2",
         "price": 350,
         "id": "2"
     },
     {"image":"../img/people/3.jpg",
-        "title": "Image 3",
+        "title": "People 3",
         "price": 200,
         "id": "3"
     },
     {"image":"../img/people/4.jpg",
-        "title": "Image 4",
+        "title": "People 4",
         "price": 250,
         "id": "4"
     },
     {"image":"../img/people/5.jpg",
-        "title": "Image 5",
+        "title": "People 5",
         "price": 300,
         "id": "5"
     },
     {"image":"../img/people/6.jpg",
-        "title": "Image 6",
+        "title": "People 6",
         "price": 150,
         "id": "6"
     },
     {"image":"../img/people/7.jpg",
-        "title": "Image 7",
+        "title": "People 7",
         "price": 200,
         "id": "7"
+    },
+    {"image":"../img/nature/nature-1.jpg",
+        "title": "Nature 1",
+        "price": 250,
+        "id": "8"
+    },
+    {"image":"../img/nature/nature-2.jpg",
+        "title": "Nature 2",
+        "price": 300,
+        "id": "9"
+    },
+    {"image":"../img/nature/nature-3.jpg",
+        "title": "Nature 3",
+        "price": 150,
+        "id": "10"
+    },
+    {"image":"../img/nature/nature-4.jpg",
+        "title": "Nature 4",
+        "price": 350,
+        "id": "11"
+    },
+    {"image":"../img/nature/nature-5.jpg",
+        "title": "Nature 5",
+        "price": 250,
+        "id": "12"
+    },
+    {"image":"../img/history/history-1.jpg",
+        "title": "History 1",
+        "price": 350,
+        "id": "13"
+    },
+    {"image":"../img/history/history-2.jpg",
+        "title": "History 2",
+        "price": 300,
+        "id": "14"
+    },
+    {"image":"../img/history/history-3.jpg",
+        "title": "History 3",
+        "price": 200,
+        "id": "15"
+    },
+    {"image":"../img/history/history-4.jpg",
+        "title": "History 4",
+        "price": 150,
+        "id": "16"
+    },
+    {"image":"../img/history/history-5.jpg",
+        "title": "History 5",
+        "price": 250,
+        "id": "17"
     }
 ]
 }
