@@ -53,18 +53,20 @@
     <h1 class="text-center mb-5 mt-5">Book A Photoshoot</h1>
     <!-- Form and Image -->
 
+    <h3 class="form-notification">Message Submitted!</h3>
     <div class="container">
       <!-- FORM -->
       <div class="row d-flex form-content">
+        <div id="error" class="error-notification d-flex"></div>
         <div class="col-6 form-content-form">
-          <form class="border border-light p-3">
+          <form action="/" method="GET" class="border border-light p-3 booking-form" >
             <div class="mb-3">
               <label for="name" class="form-label">Name</label>
-              <input type="text" class="form-control" id="name" />
+              <input type="text" class="form-control" id="name"/>
             </div>
             <div class="mb-3">
               <label for="email" class="form-label">Email</label>
-              <input type="email" class="form-control" id="email" />
+              <input type="email" class="form-control" id="email"/>
             </div>
             <select class="form-select form-select-sm mb-3">
               <option selected>Select Venue</option>
@@ -79,7 +81,7 @@
               style="height: 100px"
             ></textarea>
 
-            <button type="submit" class="btn btn-primary mb-3">Submit</button>
+            <button type="submit" class="btn form-submit-button mb-3">Submit</button>
             <h6>
               * Additional fees will be charged for photoshoots done outside of
               the Cape Town area.
@@ -114,7 +116,7 @@
          <div class="date d-flex p-2 justify-content-center">
           <input type="date" name="date" id="date"></div>
           <div class="d-flex justify-content-center align-items-center flex-column">
-          <button class="btn btn-primary weather-button">Check Weather</button>
+          <button type="submit" class="btn weather-button">Check Weather</button>
         </div>
        
         <div class="weather-info">
@@ -137,3 +139,4 @@
     ></script>
   </body>
 </html>
+

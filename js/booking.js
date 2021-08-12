@@ -7,6 +7,17 @@ const date = document.getElementById("date");
 const weatherButton = document.querySelector(".weather-button");
 const icon = document.querySelector(".icon");
 
+const form = document.querySelector(".booking-form");
+const nameInput = document.getElementById("name");
+const emailInput = document.getElementById("email");
+const select = document.querySelector(".form-select");
+const textArea = document.getElementById("text-area");
+const errorDiv = document.getElementById("error");
+const formNotification = document.querySelector(".form-notification");
+const formSubmitButton = document.querySelector(".form-submit-button");
+
+let errorMessages = [];
+
 class City {
   async getCityID() {
     let response = await fetch(
@@ -32,7 +43,7 @@ class Weather {
 class UI {
   displayWeatherData(weatherData) {
     let data = weatherData[0];
-    console.log(data);
+
     let conditionsInfo = data.weather_state_name;
 
     switch (conditionsInfo) {
@@ -85,6 +96,69 @@ class UI {
     wind.innerText = parseInt(kmh);
     humidity.innerText = data.humidity;
   }
+
+  formSubmission() {
+    form.addEventListener("submit", (e) => {
+      const nameInput = document.getElementById("name");
+      const emailInput = document.getElementById("email");
+
+      if (nameInput.value === "") {
+        errorMessages.push("Name is required!");
+      }
+
+      if (emailInput.value === "") {
+        errorMessages.push("Email is required!");
+      }
+
+      let isValid = this.validateEmail(emailInput.value);
+
+      if (!isValid) {
+        errorMessages.push("Please enter a valid email address!");
+      }
+
+      if (errorMessages.length > 0) {
+        errorDiv.innerText = errorMessages.join(", ");
+        this.formClear();
+        this.clearErrorMessages();
+        e.preventDefault();
+      }
+
+      if (errorMessages.length < 1) {
+        this.formSubmitNotification();
+      }
+      e.preventDefault();
+    });
+  }
+
+  validateEmail(emailInput) {
+    const regEx =
+      /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+    return regEx.test(emailInput.toLowerCase());
+  }
+
+  clearErrorMessages() {
+    nameInput.addEventListener("click", () => {
+      errorMessages = [];
+      errorDiv.innerText = "";
+    });
+  }
+
+  formSubmitNotification() {
+    formNotification.classList.add("form-notification-active");
+    setTimeout(this.removeNotification, 2000);
+    this.formClear();
+  }
+  removeNotification() {
+    formNotification.classList.remove("form-notification-active");
+  }
+
+  formClear() {
+    nameInput.value = "";
+    emailInput.value = "";
+    select.selectedIndex = 0;
+    textArea.value = "";
+  }
 }
 
 const city = new City();
@@ -99,3 +173,5 @@ city.getCityID().then((id) => {
     });
   });
 });
+
+ui.formSubmission();

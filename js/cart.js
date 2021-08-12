@@ -206,6 +206,12 @@ class="
     this.cartIsPopulated(cart);
   }
 
+  displayCartFromStorage(cart) {
+    cart.forEach((item) => {
+      this.updateCart(item);
+    });
+  }
+
   cartIsPopulated(cart) {
     let isPopulated = cart.find((item) => item.id);
     if (isPopulated) {
@@ -213,12 +219,6 @@ class="
     } else {
       purchaseButton.disabled = true;
     }
-  }
-
-  displayCartFromStorage(cart) {
-    cart.forEach((item) => {
-      this.updateCart(item);
-    });
   }
 
   cartLogic() {

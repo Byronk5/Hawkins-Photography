@@ -82,7 +82,7 @@ nav {
   right: 0;
   height: 100%;
   z-index: 1;
-  width: 30%;
+  width: 30vw;
   transform: translateX(110%);
   transition: all 0.3s linear;
 
@@ -292,11 +292,61 @@ nav {
 }
 
 // Booking Form
+.error-notification {
+  color: red;
+  padding: 5px;
+}
 
-@media screen and (max-width: 900px) {
+.form-submit-button {
+  background-color: $dark-color;
+  color: $light-color;
+}
+
+.form-submit-button:hover {
+  color: $main-color;
+}
+
+.weather-button {
+  background-color: $dark-color;
+  color: $light-color;
+}
+
+.weather-button:hover {
+  color: $main-color;
+}
+
+.form-notification {
+  position: fixed;
+  top: 60;
+  left: 0;
+  transition: all 0.2s linear;
+  visibility: hidden;
+  transform: translateX(-101%);
+  color: $main-color;
+  background-color: $dark-color;
+  padding: 5px;
+  z-index: 3;
+}
+
+.form-notification-active {
+  visibility: visible;
+  transform: translateX(0);
+}
+
+// Media Queries
+
+@media screen and (max-width: 768px) {
+  // Nav
   .cart-button-nav {
     width: 10%;
   }
+
+  // cart
+  .cart {
+    width: 100%;
+  }
+
+  // Booking Form
 
   .form-content {
     flex-direction: column;
@@ -318,18 +368,19 @@ nav {
 
     .weather-content-overlay {
       width: 100%;
+      margin-bottom: 2rem;
     }
 
     .weather-content-info {
-      width: 100%;
+      width: 95%;
     }
 
     .weather-info {
+      margin-top: 2rem;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      padding-top: 2rem;
     }
   }
 }

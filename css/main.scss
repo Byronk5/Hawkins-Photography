@@ -75,7 +75,7 @@ nav .cart-button-nav {
   right: 0;
   height: 100%;
   z-index: 1;
-  width: 30vw;
+  width: 30%;
   transform: translateX(110%);
   transition: all 0.3s linear;
 }
@@ -284,8 +284,13 @@ nav .cart-button-nav {
 }
 
 .error-notification {
-  color: red;
+  position: fixed;
+  top: 60;
+  left: 0;
+  color: #fff;
+  background-color: red;
   padding: 5px;
+  z-index: 3;
 }
 
 .form-submit-button {
@@ -324,13 +329,9 @@ nav .cart-button-nav {
   transform: translateX(0);
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 900px) {
   .cart-button-nav {
     width: 10%;
-  }
-
-  .cart {
-    width: 100%;
   }
 
   .form-content {
@@ -377,4 +378,4 @@ footer span {
   font-weight: bold;
 }
 
-/*# sourceMappingURL=main.css.map */
+/*# sourceMappingURL=main.scss.map */
