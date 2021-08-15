@@ -31,7 +31,7 @@ nav .cart-button-nav {
 
 .homepage-background {
   height: 80vh;
-  background: url("img/homepage/lukasz-szmigiel-jFCViYFYcus-unsplash.jpg") no-repeat center/cover;
+  background: url("/img/homepage/lukasz-szmigiel-jFCViYFYcus-unsplash.jpg") no-repeat center/cover;
 }
 .homepage-background .fadeIn-left {
   display: flex;
