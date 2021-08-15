@@ -18,7 +18,7 @@ let inputs = [];
 
 class Products {
   async getProductsJSON() {
-    const response = await fetch("../items.json");
+    const response = await fetch("items.json");
     let data = await response.json();
     let products = data.items;
     products.map((item) => {
