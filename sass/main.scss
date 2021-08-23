@@ -283,14 +283,6 @@ nav {
   grid-row-end: 28;
 }
 
-.gallery-item {
-  transition: transform 0.2s ease-in-out;
-}
-
-.gallery-item:hover {
-  transform: scale(1.2);
-}
-
 // Booking Form
 .error-notification {
   color: red;

@@ -275,14 +275,6 @@ nav .cart-button-nav {
   grid-row-end: 28;
 }
 
-.gallery-item {
-  transition: transform 0.2s ease-in-out;
-}
-
-.gallery-item:hover {
-  transform: scale(1.2);
-}
-
 .error-notification {
   color: red;
   padding: 5px;
