@@ -466,6 +466,10 @@ nav .cart-button-nav {
   color: #fff;
 }
 
+.attribution a {
+  color: #f2b31b;
+}
+
 footer span {
   color: #f2b31b;
   font-weight: bold;
